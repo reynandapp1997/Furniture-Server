@@ -3,6 +3,8 @@ const moment = require('moment');
 
 const Furnitures = require('../models/furniture');
 
+const environment = require('../env.json');
+
 exports.getFurnitures = (req, res, next) => {
     Furnitures.find()
         .sort({
@@ -16,7 +18,7 @@ exports.getFurnitures = (req, res, next) => {
                 const createdAt = moment(fur.createdAt).fromNow();
                 const updatedAt = moment(fur.updatedAt).fromNow();
                 const images = fur.images.map(img => {
-                    return `https://furniture-server.herokuapp.com/api/upload/image/${img}`
+                    return `${environment.env.DOMAIN}/api/upload/image/${img}`
                 });
                 return {
                     id: fur._id,
@@ -57,7 +59,7 @@ exports.getFurniture = (req, res, next) => {
             const createdAt = moment(result.createdAt).fromNow();
             const updatedAt = moment(result.updatedAt).fromNow();
             const images = result.images.map(img => {
-                return `https://furniture-server.herokuapp.com/api/upload/image/${img}`
+                return `${environment.env.DOMAIN}/api/upload/image/${img}`
             });
             return res.status(200).json({
                     id: result._id,
@@ -94,7 +96,7 @@ exports.getFurnitureByCategory = (req, res, next) => {
                 const createdAt = moment(fur.createdAt).fromNow();
                 const updatedAt = moment(fur.updatedAt).fromNow();
                 const images = fur.images.map(img => {
-                    return `https://furniture-server.herokuapp.com/api/upload/image/${img}`
+                    return `${environment.env.DOMAIN}/api/upload/image/${img}`
                 });
                 return {
                     id: fur._id,

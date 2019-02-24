@@ -7,6 +7,8 @@ const user = require('./routes/user');
 const furniture = require('./routes/furniture');
 const upload = require('./routes/upload');
 
+const environment = require('./env.json');
+
 const app = express();
 
 app.use(bodyParser.json());
@@ -41,7 +43,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-mongoose.connect('mongodb+srv://reynandapp1997:gegewepe@cluster0-uclqy.mongodb.net/furniture?retryWrites=true', {
+mongoose.connect(environment.env.MONGODB_URI, {
     useNewUrlParser: true
 }, (error, result) => {
     if (error) {

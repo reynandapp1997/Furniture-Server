@@ -1,7 +1,7 @@
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
 
-const mongoURI = 'mongodb+srv://reynandapp1997:gegewepe@cluster0-uclqy.mongodb.net/furniture?retryWrites=true';
+const mongoURI = environment.env.MONGODB_URI;
 const connection = mongoose.createConnection(mongoURI, {
     useNewUrlParser: true
 });
