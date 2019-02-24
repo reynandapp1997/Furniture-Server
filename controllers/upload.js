@@ -1,6 +1,8 @@
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
 
+const environment = require('../env.json');
+
 const mongoURI = environment.env.MONGODB_URI;
 const connection = mongoose.createConnection(mongoURI, {
     useNewUrlParser: true
