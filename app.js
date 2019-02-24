@@ -41,13 +41,13 @@ app.use((err, req, res, next) => {
     });
 });
 
-mongoose.connect('mongodb://127.0.0.1:27017/furniture', {
+mongoose.connect('mongodb+srv://reynandapp1997:gegewepe@cluster0-uclqy.mongodb.net/furniture?retryWrites=true', {
     useNewUrlParser: true
 }, (error, result) => {
     if (error) {
         return console.log(error);
     }
     console.log('MongoDB connected');
-    app.listen(process.env.PORT || 3001);
+    app.listen(process.env.PORT || 3000);
 });
 mongoose.Promise = global.Promise;

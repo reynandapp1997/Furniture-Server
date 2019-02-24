@@ -5,7 +5,7 @@ const GridFsStorage = require('multer-gridfs-storage');
 const Grid = require('gridfs-stream');
 const mongoose = require('mongoose');
 
-const mongoURI = 'mongodb://127.0.0.1:27017/furniture';
+const mongoURI = 'mongodb+srv://reynandapp1997:gegewepe@cluster0-uclqy.mongodb.net/furniture?retryWrites=true';
 const connection = mongoose.createConnection(mongoURI, {
     useNewUrlParser: true
 });
